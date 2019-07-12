@@ -35,6 +35,31 @@ public class UserController {
     private UserMapper userMapper;
 
     /**
+     * 使用pageHelper 分页查询
+     * @param page int
+     * @param pageSize int
+     * @return PageInfo
+     */
+    @RequestMapping("/findPage")
+    public PageResult findPage(Integer page, Integer pageSize) {
+        try {
+            if (page!=null&&pageSize!=null){
+                com.github.pagehelper.Page<User> page1 = userService.findPage(page, pageSize);
+                if (page1!=null&&!page1.isEmpty()){
+                    long total = page1.getTotal();
+                    return new PageResult<>(201,"查询成功",page1,total);
+                }
+                return new PageResult<>(210,"查询结果为空",null,0);
+            }else {
+                return new PageResult<>(101,"page,pageSize不能为空",null,0);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new PageResult<>(101,"查询出错",null,0);
+        }
+    }
+
+    /**
      * 查询集合
      *
      * @return JsonResult
@@ -173,6 +198,7 @@ public class UserController {
     public JsonResult save(@RequestBody User user) {
         try {
             if (user != null) {
+                User user1 = new User();
                 boolean save = userService.save(user);
 //                int n = userMapper.insert(user);
                 return new JsonResult<>(202, "添加成功", save);

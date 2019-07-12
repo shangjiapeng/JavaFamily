@@ -2,6 +2,9 @@ package com.shang.demo.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.shang.demo.domain.User;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * @Author: 尚家朋
@@ -12,5 +15,7 @@ import com.shang.demo.domain.User;
 /** User 对应的 Mapper 接口 */
 public interface UserMapper extends BaseMapper<User> {
 
+    @Select("select * from user ")
+    List<User> findPage();
 
 }
