@@ -25,12 +25,12 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!--热部署-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-devtools</artifactId>-->
-<!--            <scope>runtime</scope>-->
-<!--            <optional>true</optional>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-devtools</artifactId>-->
+        <!--            <scope>runtime</scope>-->
+        <!--            <optional>true</optional>-->
+        <!--        </dependency>-->
         <!--mysql-->
         <dependency>
             <groupId>mysql</groupId>
@@ -146,7 +146,33 @@
             <artifactId>amqp-client</artifactId>
             <version>5.4.3</version>
         </dependency>
+
+        <!--elasticSearch-->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <version>6.4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>6.4.3</version>
+        </dependency>
+
+        <!--使用注释处理器生成自己的元数据-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!--通用mapper-->
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper</artifactId>
+            <version>4.0.0</version>
+        </dependency>
     </dependencies>
+
 
     <build>
         <plugins>

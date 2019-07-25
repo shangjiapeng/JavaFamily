@@ -18,4 +18,7 @@ public interface UserMapper extends BaseMapper<User> {
     @Select("select * from user ")
     List<User> findPage();
 
+
+    User findById(int userId);
+
 }
