@@ -18,6 +18,9 @@ public interface UserMapper extends BaseMapper<User> {
     @Select("select * from user ")
     List<User> findPage();
 
+    @Select("select * from user limit #{start},#{pageSize}")
+    List<User> findPage(int start,int pageSize);
+
 
     User findById(int userId);
 

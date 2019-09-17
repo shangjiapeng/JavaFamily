@@ -1,8 +1,11 @@
 package com.shang.demo.util;
 
+import java.util.Collection;
+import java.util.Collections;
+
 /**
  * String工具
- * @author 李俊标
+ * @author 尚家朋
  */
 public class StringUtil {
     /**
@@ -25,7 +28,6 @@ public class StringUtil {
      * String不为空判断(不允许空格)
      * @param str
      * @return boolean
-     * @author Wang926454
      * @date 2018/9/4 14:51
      */
     public static boolean isNotBlank(String str) {
@@ -36,7 +38,6 @@ public class StringUtil {
      * Byte数组为空判断
      * @param bytes
      * @return boolean
-     * @author Wang926454
      * @date 2018/9/4 15:39
      */
     public static boolean isNull(byte[] bytes) {
@@ -48,7 +49,6 @@ public class StringUtil {
      * Byte数组不为空判断
      * @param bytes
      * @return boolean
-     * @author Wang926454
      * @date 2018/9/4 15:41
      */
     public static boolean isNotNull(byte[] bytes) {
@@ -59,7 +59,6 @@ public class StringUtil {
      * 驼峰转下划线工具
      * @param param
      * @return java.lang.String
-     * @author Wang926454
      * @date 2018/9/4 14:52
      */
     public static String camelToUnderline(String param) {
@@ -85,7 +84,6 @@ public class StringUtil {
      * 下划线转驼峰工具
      * @param param
      * @return java.lang.String
-     * @author Wang926454
      * @date 2018/9/4 14:52
      */
     public static String underlineToCamel(String param) {
@@ -113,7 +111,6 @@ public class StringUtil {
      * 在字符串两周添加''
      * @param param
      * @return java.lang.String
-     * @author Wang926454
      * @date 2018/9/4 14:53
      */
     public static String addSingleQuotes(String param) {

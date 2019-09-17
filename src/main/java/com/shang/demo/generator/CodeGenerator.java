@@ -1,4 +1,4 @@
-package com.shang.demo;
+package com.shang.demo.generator;
 
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;

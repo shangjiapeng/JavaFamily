@@ -1,4 +1,4 @@
-package com.shang.demo;
+package com.shang.demo.elasticsearch;
 
 import com.shang.demo.domain.User;
 import com.shang.demo.mapper.UserMapper;
@@ -35,8 +35,8 @@ import org.elasticsearch.search.sort.SortOrder;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+//import org.springframework.boot.test.context.SpringBootTest;
+//import org.springframework.test.context.junit4.SpringRunner;
 import javax.annotation.Resource;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -47,8 +47,8 @@ import java.util.*;
  * @Date: 2019-07-01 17:06
  * @Version 1.0
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
 public class ElasticSearchTest {
     @Resource
     private UserMapper userMapper;

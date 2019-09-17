@@ -6,8 +6,8 @@ import java.util.Set;
 import org.springframework.data.redis.core.RedisTemplate;
 
 /**
- * 缓存工具类
- * @author Administrator
+ * 缓存工具类使用RedisTemplate 处理缓存
+ * @author Shangjiapeng
  *
  */
 public class CacheUtil {
