@@ -5,7 +5,8 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 /**
- * 自定义会还栅栏  CyclicBarrier -等待至barrier 状态再全部同时执行
+ * 自定义回环
+ * 栅栏  CyclicBarrier -等待至barrier 状态再全部同时执行
  */
 public class MyCyclicBarrier {
 
