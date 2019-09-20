@@ -3,9 +3,8 @@ package com.shang.demo.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.shang.demo.domain.User;
+import com.shang.demo.pojo.User;
 import com.shang.demo.mapper.UserMapper;
 import com.shang.demo.result.JsonResult;
 import com.shang.demo.result.PageResult;
@@ -19,7 +18,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.Callable;
 
 /**
  * <p></p>

@@ -3,7 +3,7 @@ package com.shang.demo.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.shang.demo.domain.User;
+import com.shang.demo.pojo.User;
 import com.shang.demo.mapper.UserMapper;
 import com.shang.demo.service.UserService;
 import org.springframework.stereotype.Service;

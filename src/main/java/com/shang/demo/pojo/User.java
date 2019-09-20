@@ -1,8 +1,5 @@
-package com.shang.demo.domain;
+package com.shang.demo.pojo;
 
-import com.baomidou.mybatisplus.annotation.KeySequence;
-import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.baomidou.mybatisplus.annotation.Version;
 import lombok.Data;
 import lombok.ToString;
 
@@ -21,7 +18,7 @@ public class User {
     private Long id;
 //    @TableField(value = "name")
     private String name;
-    private int age;
+    private Integer age;
 //    @TableLogic
     private String email;
 }

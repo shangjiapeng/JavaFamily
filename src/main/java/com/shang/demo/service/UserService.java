@@ -2,7 +2,7 @@ package com.shang.demo.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.pagehelper.Page;
-import com.shang.demo.domain.User;
+import com.shang.demo.pojo.User;
 
 
 /**

@@ -1,7 +1,7 @@
 package com.shang.demo.elasticsearch;
 
 import com.shang.demo.MybatisplusdemoApplication;
-import com.shang.demo.domain.User;
+import com.shang.demo.pojo.User;
 import com.shang.demo.mapper.UserMapper;
 import org.elasticsearch.action.DocWriteResponse;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;

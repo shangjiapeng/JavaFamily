@@ -1,7 +1,7 @@
 package com.shang.demo.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.shang.demo.domain.User;
+import com.shang.demo.pojo.User;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
