@@ -1,6 +1,6 @@
 package com.shang.demo.aop;
 
-import com.shang.demo.annotation.NoRepeatSubmit;
+import com.shang.demo.javabasic.annotation.NoRepeatSubmit;
 import com.shang.demo.result.JsonResult;
 import com.shang.demo.util.RedisLockUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -20,6 +20,7 @@ import java.util.UUID;
 
 /**
  * @Author: 尚家朋
+ * 请求重复提交切面
  * @Date: 2019-07-02 14:36
  * @Version 1.0
  */

@@ -1,4 +1,4 @@
-package com.shang.demo.reflect;
+package com.shang.demo.javabasic.reflect;
 
 
 import com.shang.demo.pojo.Student;
@@ -15,6 +15,9 @@ import java.lang.reflect.Method;
  * Field 类: java.lang.reflec 包中的类,表示类的成员变量,可以用来获取和设置类之中的属性值.
  * Method 类: java.lang.reflec包中的类,表示类的方法,可以用来获取类中的方法信息或者执行方法.
  * Construct类: java.lang.reflec包中的类,表示类的构造方法.
+ *
+ * 带有Declared 的APi表示返回直接存在此元素上的相关属性
+ *
  */
 public class ReflectApi {
 
@@ -31,7 +34,7 @@ public class ReflectApi {
         for (Method method : methods) {
             System.out.println(method.toString());
         }
-        //获取类的所有成员属性信息
+        //获取类的所有成员字段属性信息
         Field[] declaredFields = clazz2.getDeclaredFields();
         for (Field field : declaredFields) {
             System.out.println(field.toString());

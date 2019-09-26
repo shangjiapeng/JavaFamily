@@ -1,4 +1,4 @@
-package com.shang.demo.clendar;
+package com.shang.demo.javabasic.clendar;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

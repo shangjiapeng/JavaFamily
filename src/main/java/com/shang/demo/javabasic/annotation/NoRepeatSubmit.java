@@ -1,4 +1,4 @@
-package com.shang.demo.annotation;
+package com.shang.demo.javabasic.annotation;
 
 import java.lang.annotation.*;
 

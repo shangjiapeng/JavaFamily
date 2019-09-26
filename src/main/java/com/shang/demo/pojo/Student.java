@@ -3,6 +3,8 @@ package com.shang.demo.pojo;
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 /**
  * <p></p>
  *
@@ -11,7 +13,7 @@ import lombok.ToString;
  */
 @Data
 @ToString
-public class Student extends User{
+public class Student extends User implements Serializable {
     /**
      * 名字
      * 数据库字段: name varchar(20)
