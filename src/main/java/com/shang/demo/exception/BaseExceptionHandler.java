@@ -25,20 +25,14 @@ public class BaseExceptionHandler {
     @ResponseBody
     public Result error(Exception e) {
         e.printStackTrace();
+        logger.error(e.getMessage(), e);
+        if (e instanceof DataAccessException) {
+            return new Result<>(false, StatusCode.ACCESS_ERROR,"数据库中已存在该记录");
+        }else if (e instanceof NullPointerException ){
+            return new Result<>(false, StatusCode.ACCESS_ERROR,"空指针异常");
+        }
         return new Result<>(false, StatusCode.ERROR, e.getMessage(), null);
     }
 
-    @ExceptionHandler(DataAccessException.class)
-    @ResponseBody
-    public Object handleDuplicateKeyException(DataAccessException e){
-        logger.error(e.getMessage(), e);
-        return new Result<>(false, StatusCode.ACCESS_ERROR,"数据库中已存在该记录");
-    }
 
-//    @ExceptionHandler(AuthorizationException.class)
-//    public Object handleAuthorizationException(AuthorizationException e){
-//        logger.error(e.getMessage(), e);
-//        return ResultUtil.error("没有权限，请联系管理员授权");
-//    }
-    
 }
