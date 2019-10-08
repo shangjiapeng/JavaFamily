@@ -41,7 +41,7 @@ public class FastSort {
             int temp = array[end];
             array[end] = array[start];
             array[start] = temp;
-            //第二步:从前向后比较,找到第一个比技术大的数
+            //第二步:从前向后比较,找到第一个比基数大的数
             while (end > start && array[start] <= key) {
                 //如果比基准值小,则向右移动一位
                 start++;
