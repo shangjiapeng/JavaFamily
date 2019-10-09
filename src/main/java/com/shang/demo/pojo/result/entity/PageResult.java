@@ -1,4 +1,4 @@
-package com.shang.demo.result.entity;
+package com.shang.demo.pojo.result.entity;
 
 import java.util.List;
 

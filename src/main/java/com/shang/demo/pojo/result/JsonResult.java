@@ -1,26 +1,25 @@
-package com.shang.demo.result;
+package com.shang.demo.pojo.result;
 
 /**
- * <p></p>
- *
- * @Author: ShangJiaPeng
- * @Since: 2019-07-04 14:29
+ * @Author: 尚家朋
+ * @Date: 2019-07-02 16:18
+ * @Version 1.0
  */
 
-public class PageResult<T> {
-    private int code;//状态码
-    private String msg;//错误码
-    private T data;//相应具体的数据类型
-    private long total;//数据总条数
+public class JsonResult<T> {
 
-    public PageResult() {
+    private int code;//状态码
+    private String msg;//状态信息
+    private T data;//相应具体的数据类型
+
+    public JsonResult() {
     }
 
-    public PageResult(int code, String msg, T data, long total) {
+    public JsonResult(int code, String msg, T data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
-        this.total = total;
+
     }
 
     public int getCode() {
@@ -47,11 +46,13 @@ public class PageResult<T> {
         this.data = data;
     }
 
-    public long getTotal() {
-        return total;
-    }
-
-    public void setTotal(long total) {
-        this.total = total;
+    @Override
+    public String toString() {
+        return "JsonResult{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
     }
 }
+

@@ -6,12 +6,11 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.shang.demo.pojo.User;
 import com.shang.demo.mapper.UserMapper;
-import com.shang.demo.result.JsonResult;
-import com.shang.demo.result.PageResult;
+import com.shang.demo.pojo.result.JsonResult;
+import com.shang.demo.pojo.result.PageResult;
 import com.shang.demo.service.UserService;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Collection;
@@ -40,7 +39,8 @@ public class UserController {
      * @param pageSize int
      * @return PageInfo
      */
-    @RequestMapping("/findPage")
+    @RequestMapping(value = "/findPage",method = RequestMethod.GET)
+    @ApiOperation(value = "使用pageHelper 分页查询")
     public PageResult findPage(Integer page, Integer pageSize) {
         try {
             if (page!=null&&pageSize!=null){
@@ -64,7 +64,7 @@ public class UserController {
      *
      * @return JsonResult
      */
-    @RequestMapping("/selectList")
+    @RequestMapping(value = "/selectList",method = RequestMethod.GET)
     public JsonResult selectList() {
         try {
             List<User> userList = userService.list();
@@ -85,8 +85,9 @@ public class UserController {
      *
      * @return JsonResult
      */
-    @RequestMapping("/selectById")
-    public JsonResult selectById(Long userId) {
+    @ApiOperation(value = "Rest风格根据ID查询")
+    @RequestMapping(value = "/selectById/{userId}",method = RequestMethod.GET)
+    public JsonResult selectById(@PathVariable Long userId) {
         try {
             if (userId != null) {
                 User user = userService.getById(userId);
@@ -112,7 +113,7 @@ public class UserController {
      *
      * @param name String
      */
-    @RequestMapping("/selectListByMap")
+    @RequestMapping(value = "/selectListByMap",method = RequestMethod.GET)
     public JsonResult selectListByMap(String  name) {
         try {
             if (name != null&&!"".equals(name)) {
@@ -137,7 +138,7 @@ public class UserController {
     /**
      * 查询列表
      */
-    @RequestMapping("/listMaps")
+    @RequestMapping(value = "/listMaps",method = RequestMethod.GET)
     public JsonResult listMaps() {
         try {
             List<Map<String, Object>> idAndNames = userMapper.selectMaps(new QueryWrapper<User>().select("id", "name"));
@@ -160,7 +161,7 @@ public class UserController {
      * @param pageSize int
      * @return PageResult
      */
-    @RequestMapping("/selectPage")
+    @RequestMapping(value = "/selectPage",method = RequestMethod.GET)
     public PageResult selectPage(Integer page, Integer pageSize, String name) {
         try {
             if (page != null && pageSize != null) {
@@ -194,7 +195,7 @@ public class UserController {
      * @param user pojo
      * @return JsonResult
      */
-    @RequestMapping("/save")
+    @RequestMapping(value = "/save",method = RequestMethod.POST)
     public JsonResult save(@RequestBody User user) {
         try {
             if (user != null) {
@@ -217,7 +218,7 @@ public class UserController {
      * @param userList pojo
      * @return JsonResult
      */
-    @RequestMapping("/saveBatch")
+    @RequestMapping(value = "/saveBatch",method = RequestMethod.POST)
     public JsonResult saveBatch(@RequestBody List<User> userList) {
         try {
             if (userList != null&&userList.size()>0) {
@@ -239,7 +240,7 @@ public class UserController {
      * @param userId int
      * @return JsonResult
      */
-    @RequestMapping("/deleteById")
+    @RequestMapping(value = "/deleteById",method = RequestMethod.DELETE)
     public JsonResult deleteById(Long userId) {
         try {
             if (userId != null) {
@@ -268,7 +269,7 @@ public class UserController {
      * @param name String
      * @return JsonResult
      */
-    @RequestMapping("/deleteByMap")
+    @RequestMapping(value = "/deleteByMap",method = RequestMethod.DELETE)
     public JsonResult deleteByMap(String name) {
         try {
             if (name != null && !"".equals(name)) {
@@ -298,7 +299,7 @@ public class UserController {
      * @param userIdList list
      * @return JsonResult
      */
-    @RequestMapping("/deleteByIdList")
+    @RequestMapping(value = "/deleteByIdList",method = RequestMethod.POST)
     public JsonResult deleteByIdList(@RequestBody List<Integer> userIdList) {
         try {
             if (userIdList != null && userIdList.size() > 0) {
@@ -319,7 +320,7 @@ public class UserController {
     /**
      * 编辑修改-根据Id
      */
-    @RequestMapping("/updateById")
+    @RequestMapping(value = "/updateById",method = RequestMethod.PUT)
     public JsonResult updateById(@RequestBody User user) {
         try {
             if (user != null) {
@@ -342,7 +343,7 @@ public class UserController {
     /**
      * 按照条件-批量编辑修改
      */
-    @RequestMapping("/update")
+    @RequestMapping(value = "/update",method = RequestMethod.PUT)
     public JsonResult update(@RequestBody User user) {
         try {
             if (user != null) {

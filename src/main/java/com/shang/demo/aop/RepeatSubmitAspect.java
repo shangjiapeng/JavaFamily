@@ -1,7 +1,7 @@
 package com.shang.demo.aop;
 
 import com.shang.demo.javabasic.annotation.NoRepeatSubmit;
-import com.shang.demo.result.JsonResult;
+import com.shang.demo.pojo.result.JsonResult;
 import com.shang.demo.util.RedisLockUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

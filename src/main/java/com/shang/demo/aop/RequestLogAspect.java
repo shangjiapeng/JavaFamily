@@ -26,7 +26,7 @@ public class RequestLogAspect {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Pointcut(value = "execution(public * com.shang.demo.controller.*.*.*(..))")
+    @Pointcut("execution(public * com.shang.demo.controller..*.*(..))")
     public void pointCut() {
 
     }
@@ -53,14 +53,12 @@ public class RequestLogAspect {
     }
 
     @Around(value = "pointCut()")
-    public void around(ProceedingJoinPoint joinPoint) throws Throwable{
+    public Object around(ProceedingJoinPoint joinPoint) throws Throwable{
         System.out.println("transAction begin");
-        joinPoint.proceed();
+        Object proceed = joinPoint.proceed();
         System.out.println("transAction commit");
+        return proceed;
     }
-
-
-
 
 }
 

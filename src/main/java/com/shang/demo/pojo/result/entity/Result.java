@@ -1,4 +1,4 @@
-package com.shang.demo.result.entity;
+package com.shang.demo.pojo.result.entity;
 
 /**
  * <p>返回结果实体类</p>
