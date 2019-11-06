@@ -11,26 +11,26 @@ public class HalfSearch {
 
     public static void main(String[] args) {
 
-        int[] array ={2,3,4,5,6,7,8,9};
-        int a= 5;
+        int[] array = {2, 3, 4, 5, 6, 7, 8, 9};
+        int a = 5;
         int i = biSearch(array, a);
-        System.out.println("a在是数组的第"+i+"个数字");
+        System.out.println("a在是数组的第" + i + "个数字");
 
     }
 
-    public static int biSearch(int[]array,int a){
-        int start =0; //最小的索引
-        int end=array.length-1;//最大索引
+    public static int biSearch(int[] array, int a) {
+        int start = 0; //最小的索引
+        int end = array.length - 1;//最大索引
         int mid;//中间索引
 
-        while (start<=end){
-            mid =(start+end)/2; //中间位置的索引
-            if (array[mid]==a){
-                return mid+1;
-            }else if (array[mid]<a){//向右查找
-                start=mid+1;
-            }else {//向左查找
-                end=mid-1;
+        while (start <= end) {
+            mid = (start + end) / 2; //中间位置的索引
+            if (array[mid] == a) {
+                return mid + 1;
+            } else if (array[mid] < a) {//向右查找
+                start = mid + 1;
+            } else {//向左查找
+                end = mid - 1;
             }
         }
         //如果经过了循环程序没有结束,就返回-1,代表没有这个值

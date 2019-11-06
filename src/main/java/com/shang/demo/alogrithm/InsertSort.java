@@ -24,16 +24,17 @@ public class InsertSort {
     public static int[] insertSort(int[] array) {
         for (int i = 1; i < array.length; i++) {
             //待插入的数字
-            int insertVal =array[i];
+            int insertVal = array[i];
             //和左边的数字比较,如果右边比左边小
-            while (i>0&&insertVal<array[i-1]){
-            //将左边的数字向右移动
-            array[i]=array[i-1];
-            //索引向前移动
-            i--;
+            while (i > 0 && insertVal < array[i - 1]) {
+                //将左边的数字向右移动
+                array[i] = array[i - 1];
+                //索引向前移动
+                i--;
+            }
+            //这一步是关键
+            array[i] = insertVal;
         }
-        array[i]=insertVal;
-    }
         return array;
     }
 }

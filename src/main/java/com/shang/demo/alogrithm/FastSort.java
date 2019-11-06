@@ -15,6 +15,7 @@ public class FastSort {
 
     public static void main(String[] args) {
         int[] array = {5, 3, 9, 4, 8, 1, 7, 2, 6};
+        //选第一个元素作为基准值
         int[] array1 = fastSort(array, 0, array.length - 1);
         for (int i : array1) {
             System.out.printf("%d", i);
@@ -25,12 +26,14 @@ public class FastSort {
      * 从小到达排序
      * 第一次调用时一般: low =0 high=array.length-1,
      *
-     * @param array int[]
+     * @param array int[] 需要被快速排序的数组
+     * @param low   表示当前次循环起始位置索引值
+     * @param high  表示当前次循环结束位置索引值
      */
     public static int[] fastSort(int[] array, int low, int high) {
         //选第一个元素作为基准值
-        int start = low;
-        int end = high;
+        int start = low;  //start表示从前向后遍历起始位置的索引
+        int end = high;  //start表示从前向后遍历结束位置的索引
         int key = array[start];
         while (end > start) {
             //第一步:从后向前比较,找到第一个比基准值小的数
@@ -52,10 +55,10 @@ public class FastSort {
             //两层循环
             //递归
             if (start > low) {
-                fastSort(array, low, start - 1);//左边的序列,从第一个索引位置到基准值索引-1
+                fastSort(array, low, start - 1);//左边的序列,从第一个索引位置到关键值索引-1
             }
             if (end < high) {
-                fastSort(array, end + 1, high);//右边的序列,从基准值索引+1到最后一个
+                fastSort(array, end + 1, high);//右边的序列,从关键值索引+1到最后一个
             }
         }
         return array;

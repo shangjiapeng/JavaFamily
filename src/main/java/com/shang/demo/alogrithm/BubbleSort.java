@@ -10,33 +10,35 @@ package com.shang.demo.alogrithm;
 public class BubbleSort {
 
     public static void main(String[] args) {
-        int[] array ={5,3,9,4,8,1,7,2,6};
-        int[] array1= bubbleSort(array);
+        int[] array = {5, 3, 9, 4, 8, 1, 7, 2, 6};
+        int[] array1 = bubbleSort(array);
         for (int i : array1) {
-            System.out.printf("%d",i);
+            System.out.printf("%d", i);
         }
     }
 
     /**
      * 从小到达排序
+     *
      * @param array int[]
      */
-    public static int[] bubbleSort(int[] array){
+    public static int[] bubbleSort(int[] array) {
         //数组的长度
-        int n =array.length;
+        int n = array.length;
 
-        while (n!=0){
-            for (int i = 0; i < n-1; i++) {
+        while (n != 0) {
+            for (int i = 0; i < n - 1; i++) {
                 //如果前面的数字比后面的数字大就交换位置
-                if (array[i]> array[i+1]){
+                if (array[i] > array[i + 1]) {
                     //交换
                     int temp;
-                    temp =array[i+1];
-                    array[i+1]=array[i];
-                    array[i]=temp;
+                    temp = array[i + 1];
+                    array[i + 1] = array[i];
+                    array[i] = temp;
                 }
             }
-            n=n-1;
+            //关键
+            n = n - 1;
         }
         return array;
     }
