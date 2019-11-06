@@ -1,7 +1,10 @@
 package com.shang.demo.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.ToString;
+
+import javax.persistence.*;
 
 /**
  * @Author: 尚家朋
@@ -10,15 +13,19 @@ import lombok.ToString;
  */
 @Data
 @ToString
-//@TableName(value = "user")
-//@KeySequence("SEQ_TEST")//类注解
+@TableName(value = "user")
+@Entity
 public class User {
-//    @TableId(value = "id", type = IdType.ID_WORKER)
-  //  @Version //乐观锁注解(支持的数据类型只有:int,Integer,long,Long,Date,Timestamp,LocalDateTime)
+    //    @TableId(value = "id", type = IdType.ID_WORKER)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-//    @TableField(value = "name")
+    @Column(name = "name")
     private String name;
+    @Column(name = "age")
     private Integer age;
-//    @TableLogic
+    @Column(name = "email")
     private String email;
+
+    private Integer likeNumber;
 }

@@ -2,6 +2,7 @@ package com.shang.demo.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.shang.demo.pojo.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
  */
 
 /** User 对应的 Mapper 接口 */
+@Mapper
 public interface UserMapper extends BaseMapper<User> {
 
     @Select("select * from user ")

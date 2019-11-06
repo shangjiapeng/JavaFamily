@@ -23,6 +23,7 @@ public class PropertiesUtil {
      */
     private static final Properties PROP = new Properties();
 
+
     /**
      * 读取配置文件
      * @param fileName

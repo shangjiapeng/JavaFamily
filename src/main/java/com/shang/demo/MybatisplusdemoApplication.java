@@ -5,11 +5,13 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication()
 @EnableTransactionManagement
@@ -20,6 +22,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan("com.shang.demo.aop")
 @Configuration
 @EnableScheduling
+@EnableSwagger2
+@EnableCaching
 public class MybatisplusdemoApplication {
 
     public static void main(String[] args) {

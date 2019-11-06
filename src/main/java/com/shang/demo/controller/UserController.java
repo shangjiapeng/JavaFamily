@@ -7,16 +7,11 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.shang.demo.pojo.User;
 import com.shang.demo.mapper.UserMapper;
 import com.shang.demo.pojo.result.JsonResult;
-import com.shang.demo.pojo.result.PageResult;
 import com.shang.demo.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.Resource;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <p></p>
@@ -33,6 +28,21 @@ public class UserController {
     @Resource
     private UserMapper userMapper;
 
+
+    /**
+     * 生成随机字符串
+     */
+    private static String creatRandomStr(int length){
+        String str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        Random random = new Random();
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            int number = random.nextInt(str.length());
+            stringBuilder.append(str.charAt(number));
+        }
+        return stringBuilder.toString();
+    }
+
     /**
      * 使用pageHelper 分页查询
      * @param page int
@@ -41,21 +51,21 @@ public class UserController {
      */
     @RequestMapping(value = "/findPage",method = RequestMethod.GET)
     @ApiOperation(value = "使用pageHelper 分页查询")
-    public PageResult findPage(Integer page, Integer pageSize) {
+    public JsonResult findPage(Integer page, Integer pageSize) {
         try {
             if (page!=null&&pageSize!=null){
                 com.github.pagehelper.Page<User> page1 = userService.findPage(page, pageSize);
                 if (page1!=null&&!page1.isEmpty()){
                     long total = page1.getTotal();
-                    return new PageResult<>(201,"查询成功",page1,total);
+                    return new JsonResult<>(201,"查询成功",page1,total);
                 }
-                return new PageResult<>(210,"查询结果为空",null,0);
+                return new JsonResult<>(210,"查询结果为空",null,0);
             }else {
-                return new PageResult<>(101,"page,pageSize不能为空",null,0);
+                return new JsonResult<>(101,"page,pageSize不能为空",null,0);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return new PageResult<>(101,"查询出错",null,0);
+            return new JsonResult<>(101,"查询出错",null,0);
         }
     }
 
@@ -159,16 +169,13 @@ public class UserController {
      *
      * @param page     int
      * @param pageSize int
-     * @return PageResult
+     * @return JsonResult
      */
     @RequestMapping(value = "/selectPage",method = RequestMethod.GET)
-    public PageResult selectPage(Integer page, Integer pageSize, String name) {
+    public JsonResult selectPage(Integer page, Integer pageSize, String name) {
         try {
             if (page != null && pageSize != null) {
-                IPage<User> page1 = userService.page(
-                        new Page<>(page, pageSize),
-                        new QueryWrapper<User>().eq("name", name)
-                );
+                IPage<User> page1 = userService.page(new Page<>(page, pageSize), new QueryWrapper<User>().eq("name", name));
 //                IPage<User> page2 = userMapper.selectPage(
 //                        new Page<>(page, pageSize),
 //                        new QueryWrapper<User>().eq("name", name)
@@ -176,16 +183,16 @@ public class UserController {
                 List<User> userList = page1.getRecords();
                 if (userList != null && userList.size() > 0) {
                     long total = page1.getTotal();
-                    return new PageResult<>(201, "查询成功", userList, total);
+                    return new JsonResult<>(201, "查询成功", userList, total);
                 } else {
-                    return new PageResult<>(210, "查询结果为空", null, 0);
+                    return new JsonResult<>(210, "查询结果为空", null, 0);
                 }
             } else {
-                return new PageResult<>(101, "page和pageSize不能为空", null, 0);
+                return new JsonResult<>(101, "page和pageSize不能为空", null, 0);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return new PageResult<>(101, "查询出错", null, 0);
+            return new JsonResult<>(101, "查询出错", null, 0);
         }
     }
 
