@@ -21,7 +21,7 @@ public class ScheduleTask {
      * 任务调度,每隔2秒执行一次
      */
 
-    @Scheduled(fixedRate = 1000)  //单位是毫秒
+    @Scheduled(fixedRate = 10000)  //单位是毫秒
     public void reportCurrentTime(){
         System.err.println("现在时间: "+dateFormat.format(new Date()));
     }
