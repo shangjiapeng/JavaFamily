@@ -17,13 +17,13 @@ import java.util.List;
  */
 public interface UserLikeRepository extends JpaRepository<UserLike,Integer>, JpaSpecificationExecutor<UserLike> {
 
-    @Query("select UserLike from UserLike where id=?1 and status =?2 ")
+    @Query("select ul from UserLike ul where likedUserId=?1 and status =?2 ")
     Page<UserLike> findByLikedUserIdAndStatus(String likedUserId, Integer status, Pageable pageable);
 
-    @Query("select UserLike from UserLike where likedPostId=?1 and status =?2 ")
+    @Query("select ul from UserLike ul where likedPostId=?1 and status =?2 ")
     Page<UserLike> findByLikedPostIdAndStatus(String likedPostId,Integer status, Pageable pageable) ;
 
-    @Query("select UserLike from UserLike where likedUserId=?1 and likedPostId=?2 ")
+    @Query("select ul from UserLike ul where likedUserId=?1 and likedPostId=?2 ")
     UserLike findByLikedUserIdAndLikedPostId(String likedUserId, String likedPostId);
 
 

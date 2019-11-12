@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.shang.demo.annotation.AccessLimit;
 import com.shang.demo.pojo.User;
 import com.shang.demo.mapper.UserMapper;
 import com.shang.demo.pojo.result.JsonResult;
@@ -28,6 +29,15 @@ public class UserController {
     @Resource
     private UserMapper userMapper;
 
+
+    /**
+     * 测试接口防刷自定义注解
+     */
+    @AccessLimit(seconds = 10,maxCount = 5,needLogin =true )
+    @RequestMapping("/testLimit")
+    public String fangshua(){
+        return "success";
+    }
 
     /**
      * 生成随机字符串

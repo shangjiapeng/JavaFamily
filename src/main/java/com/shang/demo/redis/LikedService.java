@@ -30,18 +30,18 @@ public interface LikedService {
     /**
      * 根据被点赞人的id查询点赞列表（即查询都谁给这个人点赞过）
      * @param likedUserId 被点赞人的id
-     * @param pageable
+     * @param page
      * @return
      */
-    Page<UserLike> getLikedListByLikedUserId(String likedUserId, Pageable pageable);
+    Page<UserLike> getLikedListByLikedUserId(String likedUserId, int page, int size);
 
     /**
      * 根据点赞人的id查询点赞列表（即查询这个人都给谁点赞过）
      * @param likedPostId
-     * @param pageable
+     * @param page
      * @return
      */
-    Page<UserLike> getLikedListByLikedPostId(String likedPostId, Pageable pageable);
+    Page<UserLike> getLikedListByLikedPostId(String likedPostId, int page, int size);
 
     /**
      * 通过被点赞人和点赞人id查询是否存在点赞记录

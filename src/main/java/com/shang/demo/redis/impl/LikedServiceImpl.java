@@ -9,6 +9,7 @@ import com.shang.demo.redis.LikedService;
 import com.shang.demo.redis.RedisService;
 import com.shang.demo.service.UserService;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,13 +47,15 @@ public class LikedServiceImpl implements LikedService {
     }
 
     @Override
-    public Page<UserLike> getLikedListByLikedUserId(String likedUserId, Pageable pageable) {
-        return likeRepository.findByLikedUserIdAndStatus(likedUserId, LikedStatusEnum.LIKE.getCode(), pageable);
+    public Page<UserLike> getLikedListByLikedUserId(String likedUserId, int page, int size) {
+        PageRequest pageRequest = PageRequest.of(page - 1, size);
+        return likeRepository.findByLikedUserIdAndStatus(likedUserId, LikedStatusEnum.LIKE.getCode(), pageRequest);
     }
 
     @Override
-    public Page<UserLike> getLikedListByLikedPostId(String likedPostId, Pageable pageable) {
-        return likeRepository.findByLikedPostIdAndStatus(likedPostId, LikedStatusEnum.LIKE.getCode(), pageable);
+    public Page<UserLike> getLikedListByLikedPostId(String likedPostId, int page, int size) {
+        PageRequest pageRequest = PageRequest.of(page - 1, size);
+        return likeRepository.findByLikedPostIdAndStatus(likedPostId, LikedStatusEnum.LIKE.getCode(), pageRequest);
     }
 
     @Override
