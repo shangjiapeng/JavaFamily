@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
 
 /**
- * <p></p>
+ * <p>创建切面类处理日志 </p>
  *
  * @Author: ShangJiaPeng
  * @Since: 2019-07-04 16:05
@@ -26,11 +26,19 @@ public class RequestLogAspect {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
+    /**
+     * 定义切入点
+     */
     @Pointcut("execution(public * com.shang.demo.controller..*.*(..))")
     public void pointCut() {
 
     }
 
+    /**
+     * 前置通知
+     * @param joinPoint
+     * @throws Throwable
+     */
     @Before(value = "pointCut()")
     public void doBefore(JoinPoint joinPoint) throws Throwable {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
@@ -46,12 +54,23 @@ public class RequestLogAspect {
         }
     }
 
+    /**
+     * 后置通知
+     * @param ret
+     * @throws Throwable
+     */
     @AfterReturning(returning = "ret", pointcut = "pointCut()")
     public void doAfterReturning(Object ret) throws Throwable {
         // 处理完请求，返回内容
         logger.info("RESPONSE : " + ret);
     }
 
+    /**
+     * 环绕通知
+     * @param joinPoint
+     * @return
+     * @throws Throwable
+     */
     @Around(value = "pointCut()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable{
         System.out.println("transAction begin");
