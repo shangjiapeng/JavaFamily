@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
@@ -18,7 +17,7 @@ import redis.clients.jedis.JedisPoolConfig;
  */
 @Configuration
 @EnableAutoConfiguration
-@PropertySource("classpath:config.properties")
+//@PropertySource("classpath:config.properties")
 @ConfigurationProperties(prefix = "redis")
 public class JedisConfig {
 
@@ -59,8 +58,8 @@ public class JedisConfig {
             jedisPoolConfig.setMaxWaitMillis(maxWait);
             jedisPoolConfig.setMaxTotal(maxActive);
             jedisPoolConfig.setMinIdle(minIdle);
-            // JedisPool jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout, password);
-            JedisPool jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout);
+             JedisPool jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout, password);
+//            JedisPool jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout);
             LOGGER.info("初始化Redis连接池JedisPool成功!地址: " + host + ":" + port);
             return jedisPool;
         } catch (Exception e) {

@@ -1,9 +1,9 @@
 package com.shang.demo.config;
 
+import com.baomidou.mybatisplus.extension.incrementer.OracleKeyGenerator;
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
-import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,19 +23,19 @@ public class MybatisPlusConfig {
     /**
      * 分页插件配置类
      */
-//    @Bean
-//    public PaginationInterceptor paginationInterceptor(){
-//        return new PaginationInterceptor();
-//    }
+    @Bean
+    public PaginationInterceptor paginationInterceptor(){
+        return new PaginationInterceptor();
+    }
 
-//    /**
-//     * Sequence 主键
-//     */
-//    @Bean
-//    public OracleKeyGenerator oracleKeyGenerator(){
-//        return new OracleKeyGenerator();
-//    }
-//
+    /**
+     * Sequence 主键
+     */
+    @Bean
+    public OracleKeyGenerator oracleKeyGenerator(){
+        return new OracleKeyGenerator();
+    }
+
 
     /**
      * SQL执行效率插件
