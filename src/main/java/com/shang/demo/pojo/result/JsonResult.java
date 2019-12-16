@@ -8,10 +8,10 @@ package com.shang.demo.pojo.result;
 
 public class JsonResult<T> {
 
-    private int code;//状态码
+    private Integer code;//状态码
     private String msg;//状态信息
     private T data;//相应具体的数据类型
-    private long total;//数据总条数
+    private Long total;//数据总条数
 
     public JsonResult() {
     }
