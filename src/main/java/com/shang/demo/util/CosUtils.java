@@ -21,13 +21,13 @@ import java.util.concurrent.Executors;
 public class CosUtils {
 
     // 1 初始化用户身份信息(secretId, secretKey，可在腾讯云后台中的API密钥管理中查看！
-    private static COSCredentials cred = new BasicCOSCredentials("AKIDZ0HQOBjzlMn7GNEFxVt8FJGKLEwT4367", "9C782nOOK6lHcRCnEVPCrLemkW7ar4Ll");
+    private static COSCredentials cred = new BasicCOSCredentials("xxxx", "xxxx");
 
-    // 2 设置bucket的区域, COS地域的简称请参照 https://cloud.tencent.com/document/product/436/6224，根据自己创建的存储桶选择地区
+    // 2 设置bucket的区域, COS地域的简称请参照 https://cloud.tencent.com/document/product/*，根据自己创建的存储桶选择地区
     private static ClientConfig clientConfig = new ClientConfig(new Region("ap-chongqing"));
 
     // bucket的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式，这个为存储桶名称
-    private static String bucketName = "qishimai-0-test-1257428522";
+    private static String bucketName = "xxxxxx";
 
 
     /**

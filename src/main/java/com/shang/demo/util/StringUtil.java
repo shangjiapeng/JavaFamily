@@ -17,8 +17,6 @@ public class StringUtil {
      * String为空判断(不允许空格)
      * @param str
      * @return boolean
-     * @author Wang926454
-     * @date 2018/9/4 14:49
      */
     public static boolean isBlank(String str) {
         return str == null || "".equals(str.trim());

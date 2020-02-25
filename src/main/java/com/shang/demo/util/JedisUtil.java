@@ -65,8 +65,6 @@ public class JedisUtil {
      * 获取redis键值-object
      * @param key
      * @return java.lang.Object
-     * @author Wang926454
-     * @date 2018/9/4 15:47
      */
     public static Object getObject(String key) {
         try (Jedis jedis = jedisPool.getResource()) {
@@ -85,8 +83,6 @@ public class JedisUtil {
      * @param key
 	 * @param value
      * @return java.lang.String
-     * @author Wang926454
-     * @date 2018/9/4 15:49
      */
     public static String setObject(String key, Object value) {
         try (Jedis jedis = jedisPool.getResource()) {

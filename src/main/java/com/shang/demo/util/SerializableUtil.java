@@ -19,8 +19,6 @@ public class SerializableUtil {
      * 序列化
      * @param object
      * @return byte[]
-     * @author Wang926454
-     * @date 2018/9/4 15:14
      */
     public static byte[] serializable(Object object) {
         ByteArrayOutputStream baos = null;
@@ -52,8 +50,6 @@ public class SerializableUtil {
      * 反序列化
      * @param bytes
      * @return java.lang.Object
-     * @author Wang926454
-     * @date 2018/9/4 15:14
      */
     public static Object unserializable(byte[] bytes) {
         ByteArrayInputStream bais = null;

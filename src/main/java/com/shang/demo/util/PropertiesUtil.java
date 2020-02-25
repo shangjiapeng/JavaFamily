@@ -28,8 +28,6 @@ public class PropertiesUtil {
      * 读取配置文件
      * @param fileName
      * @return void
-     * @author Wang926454
-     * @date 2018/8/31 17:29
      */
     public static void readProperties(String fileName) {
         InputStream in = null;
@@ -56,8 +54,6 @@ public class PropertiesUtil {
      * 根据key读取对应的value
      * @param key
      * @return java.lang.String
-     * @author Wang926454
-     * @date 2018/8/31 17:29
      */
     public static String getProperty(String key){
         return PROP.getProperty(key);

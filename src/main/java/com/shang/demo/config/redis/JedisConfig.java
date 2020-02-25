@@ -13,7 +13,6 @@ import redis.clients.jedis.JedisPoolConfig;
 /**
  * Jedis配置，项目启动注入JedisPool
  *
- * @author 李俊标
  */
 @Configuration
 @EnableAutoConfiguration
